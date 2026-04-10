@@ -1,83 +1,191 @@
 {
-  "remarks" : "🇫🇮 Белые списки #4",
-  "outbounds" : [
-    {
-      "tag" : "proxy",
-      "streamSettings" : {
-        "network" : "tcp",
-        "security" : "reality",
-        "realitySettings" : {
-          "fingerprint" : "chrome",
-          "publicKey" : "41nSt8Av4EcDuqi4vvAJIduyJsPF5rjCOg652Kb1VEY",
-          "serverName" : "web.eclipse-cloud.xyz",
-          "shortId" : "e66bf0125c771eac",
-          "spiderX" : ""
+    "remarks": "🌌 Aurora",
+    "dns": {
+        "hosts": {
+            "domain:googleapis.cn": "googleapis.com"
         },
-        "tcpSettings" : {
-          "header" : {
-            "type" : "none"
-          }
-        }
-      },
-      "settings" : {
-        "port" : 8443,
-        "flow" : "xtls-rprx-vision",
-        "address" : "web.eclipse-cloud.xyz",
-        "id" : "70bbeedd-941e-4889-9083-beb0d06d6a40",
-        "encryption" : "none"
-      },
-      "protocol" : "vless"
+        "queryStrategy": "UseIPv4",
+        "servers": [
+            "1.1.1.1",
+            {
+                "address": "1.1.1.1",
+                "domains": [],
+                "port": 53
+            },
+            {
+                "address": "8.8.8.8",
+                "domains": [],
+                "port": 53
+            }
+        ]
     },
-    {
-      "settings" : {
-        "response" : {
-          "type" : "none"
+    "inbounds": [
+        {
+            "listen": "127.0.0.1",
+            "port": 10808,
+            "protocol": "socks",
+            "settings": {
+                "auth": "noauth",
+                "udp": true,
+                "userLevel": 8
+            },
+            "sniffing": {
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ],
+                "enabled": true
+            },
+            "tag": "socks"
+        },
+        {
+            "listen": "127.0.0.1",
+            "port": 10809,
+            "protocol": "http",
+            "settings": {
+                "userLevel": 8
+            },
+            "sniffing": {
+                "destOverride": [
+                    "http",
+                    "tls",
+                    "quic"
+                ],
+                "enabled": true
+            },
+            "tag": "http"
+        },
+        {
+            "listen": "127.0.0.1",
+            "port": 11111,
+            "protocol": "dokodemo-door",
+            "settings": {
+                "address": "127.0.0.1"
+            },
+            "tag": "metrics_in"
         }
-      },
-      "protocol" : "blackhole",
-      "tag" : "block"
+    ],
+    "log": {
+        "loglevel": "warning"
     },
-    {
-      "settings" : {
-
-      },
-      "protocol" : "freedom",
-      "tag" : "direct"
-    }
-  ],
-  "stats" : {
-
-  },
-  "inbounds" : [
-    {
-      "tag" : "socks",
-      "listen" : "[::1]",
-      "settings" : {
-        "udp" : true
-      },
-      "sniffing" : {
-        "routeOnly" : false,
-        "destOverride" : [
-          "tls",
-          "quic",
-          "http"
-        ],
-        "enabled" : true
-      },
-      "protocol" : "socks",
-      "port" : 1080
-    }
-  ],
-  "log" : {
-    "loglevel" : "info"
-  },
-  "policy" : {
-    "system" : {
-      "statsOutboundUplink" : true,
-      "statsInboundUplink" : true,
-      "statsInboundDownlink" : true,
-      "statsOutboundDownlink" : true
-    }
-  },
-  "id" : "7A6133EF-BF97-4004-88D4-13012EE31144"
+    "metrics": {
+        "tag": "metrics_out"
+    },
+    "outbounds": [
+        {
+            "mux": {
+                "concurrency": -1,
+                "enabled": false,
+                "xudpConcurrency": 8,
+                "xudpProxyUDP443": ""
+            },
+            "protocol": "vless",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "web.eclipse-cloud.xyz",
+                        "port": 443,
+                        "users": [
+                            {
+                                "encryption": "none",
+                                "flow": "xtls-rprx-vision",
+                                "id": "70bbeedd-941e-4889-9083-beb0d06d6a40",
+                                "level": 8,
+                                "security": "auto"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "streamSettings": {
+                "network": "tcp",
+                "realitySettings": {
+                    "allowInsecure": false,
+                    "fingerprint": "",
+                    "publicKey": "rFV154zDJG7u5HPWYyhiC6Ezr1Xek1cBl8kkjlGOil0",
+                    "serverName": "web.eclipse-cloud.xyz",
+                    "shortId": "c54018ddd2510b2a",
+                    "show": false,
+                    "spiderX": "/"
+                },
+                "security": "reality",
+                "tcpSettings": {
+                    "header": {
+                        "type": "none"
+                    }
+                }
+            },
+            "tag": "proxy"
+        },
+        {
+            "protocol": "freedom",
+            "settings": {
+                "domainStrategy": "UseIP"
+            },
+            "tag": "direct"
+        },
+        {
+            "protocol": "blackhole",
+            "settings": {
+                "response": {
+                    "type": "http"
+                }
+            },
+            "tag": "block"
+        }
+    ],
+    "policy": {
+        "levels": {
+            "0": {
+                "statsUserDownlink": true,
+                "statsUserUplink": true
+            },
+            "8": {
+                "connIdle": 300,
+                "downlinkOnly": 1,
+                "handshake": 4,
+                "uplinkOnly": 1
+            }
+        },
+        "system": {
+            "statsInboundDownlink": true,
+            "statsInboundUplink": true,
+            "statsOutboundDownlink": true,
+            "statsOutboundUplink": true
+        }
+    },
+    "routing": {
+        "domainStrategy": "IPIfNonMatch",
+        "rules": [
+            {
+                "inboundTag": [
+                    "metrics_in"
+                ],
+                "outboundTag": "metrics_out"
+            },
+            {
+                "inboundTag": [
+                    "socks"
+                ],
+                "outboundTag": "proxy",
+                "port": "53"
+            },
+            {
+                "ip": [
+                    "1.1.1.1"
+                ],
+                "outboundTag": "proxy",
+                "port": "53"
+            },
+            {
+                "ip": [
+                    "8.8.8.8"
+                ],
+                "outboundTag": "direct",
+                "port": "53"
+            }
+        ]
+    },
+    "stats": {}
 }
