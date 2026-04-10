@@ -1,0 +1,83 @@
+{
+  "remarks" : "🇫🇮 Белые списки #4",
+  "outbounds" : [
+    {
+      "tag" : "proxy",
+      "streamSettings" : {
+        "network" : "tcp",
+        "security" : "reality",
+        "realitySettings" : {
+          "fingerprint" : "chrome",
+          "publicKey" : "41nSt8Av4EcDuqi4vvAJIduyJsPF5rjCOg652Kb1VEY",
+          "serverName" : "web.eclipse-cloud.xyz",
+          "shortId" : "e66bf0125c771eac",
+          "spiderX" : ""
+        },
+        "tcpSettings" : {
+          "header" : {
+            "type" : "none"
+          }
+        }
+      },
+      "settings" : {
+        "port" : 8443,
+        "flow" : "xtls-rprx-vision",
+        "address" : "web.eclipse-cloud.xyz",
+        "id" : "70bbeedd-941e-4889-9083-beb0d06d6a40",
+        "encryption" : "none"
+      },
+      "protocol" : "vless"
+    },
+    {
+      "settings" : {
+        "response" : {
+          "type" : "none"
+        }
+      },
+      "protocol" : "blackhole",
+      "tag" : "block"
+    },
+    {
+      "settings" : {
+
+      },
+      "protocol" : "freedom",
+      "tag" : "direct"
+    }
+  ],
+  "stats" : {
+
+  },
+  "inbounds" : [
+    {
+      "tag" : "socks",
+      "listen" : "[::1]",
+      "settings" : {
+        "udp" : true
+      },
+      "sniffing" : {
+        "routeOnly" : false,
+        "destOverride" : [
+          "tls",
+          "quic",
+          "http"
+        ],
+        "enabled" : true
+      },
+      "protocol" : "socks",
+      "port" : 1080
+    }
+  ],
+  "log" : {
+    "loglevel" : "info"
+  },
+  "policy" : {
+    "system" : {
+      "statsOutboundUplink" : true,
+      "statsInboundUplink" : true,
+      "statsInboundDownlink" : true,
+      "statsOutboundDownlink" : true
+    }
+  },
+  "id" : "7A6133EF-BF97-4004-88D4-13012EE31144"
+}
