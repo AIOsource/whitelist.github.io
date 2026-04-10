@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aurora — VPN Subscription</title>
+  <title>Aurora VPN — Subscription</title>
   <style>
     * {
       margin: 0;
@@ -37,7 +37,7 @@
       margin-bottom: 28px;
     }
 
-    .flag {
+    .logo {
       font-size: 48px;
       margin-bottom: 12px;
     }
@@ -80,7 +80,7 @@
       50% { opacity: 0.4; }
     }
 
-    .section {
+    .servers {
       margin-bottom: 24px;
     }
 
@@ -92,29 +92,53 @@
       margin-bottom: 12px;
     }
 
-    .info-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .info-card {
+    .server-card {
       background: #1a1a24;
       border-radius: 12px;
-      padding: 14px;
+      padding: 14px 16px;
       border: 1px solid #252535;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .info-card .label {
-      font-size: 11px;
-      color: #666666;
-      margin-bottom: 4px;
+    .server-card:last-child {
+      margin-bottom: 0;
     }
 
-    .info-card .value {
+    .server-flag {
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .server-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .server-name {
       font-size: 14px;
       font-weight: 500;
       color: #ffffff;
+      margin-bottom: 2px;
+    }
+
+    .server-detail {
+      font-size: 11px;
+      color: #666666;
+    }
+
+    .server-status {
+      flex-shrink: 0;
+    }
+
+    .server-dot {
+      width: 8px;
+      height: 8px;
+      background: #3fb950;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
     }
 
     .url-box {
@@ -122,6 +146,7 @@
       border-radius: 12px;
       padding: 14px;
       border: 1px solid #252535;
+      margin-bottom: 24px;
     }
 
     .url-box .label {
@@ -214,41 +239,35 @@
 <body>
   <div class="container">
     <div class="header">
-      <div class="flag">🇩🇪</div>
-      <h1>Aurora</h1>
-      <div class="subtitle">VLESS + Reality &bull; Германия</div>
+      <div class="logo">🌌</div>
+      <h1>Aurora VPN</h1>
+      <div class="subtitle">VLESS + Reality &bull; 2 сервера</div>
       <div class="status-badge">
         <span class="status-dot"></span>
         Активно
       </div>
     </div>
 
-    <div class="section">
-      <div class="section-title">Информация</div>
-      <div class="info-grid">
-        <div class="info-card">
-          <div class="label">Протокол</div>
-          <div class="value">VLESS</div>
+    <div class="servers">
+      <div class="section-title">Серверы</div>
+      <div class="server-card">
+        <div class="server-flag">🇫🇮</div>
+        <div class="server-info">
+          <div class="server-name">Финляндия</div>
+          <div class="server-detail">VLESS &bull; Reality &bull; Порт 8443</div>
         </div>
-        <div class="info-card">
-          <div class="label">Шифрование</div>
-          <div class="value">Reality</div>
+        <div class="server-status">
+          <div class="server-dot"></div>
         </div>
-        <div class="info-card">
-          <div class="label">Порт</div>
-          <div class="value">443</div>
+      </div>
+      <div class="server-card">
+        <div class="server-flag">🇩🇪</div>
+        <div class="server-info">
+          <div class="server-name">Германия</div>
+          <div class="server-detail">VLESS &bull; Reality &bull; Порт 443</div>
         </div>
-        <div class="info-card">
-          <div class="label">Сеть</div>
-          <div class="value">TCP</div>
-        </div>
-        <div class="info-card">
-          <div class="label">SOCKS</div>
-          <div class="value">10808</div>
-        </div>
-        <div class="info-card">
-          <div class="label">HTTP</div>
-          <div class="value">10809</div>
+        <div class="server-status">
+          <div class="server-dot"></div>
         </div>
       </div>
     </div>
@@ -272,13 +291,13 @@
           <li>Откройте <strong>Happ</strong> или <strong>Hiddify</strong></li>
           <li>Нажмите <strong>&laquo;Добавить подписку&raquo;</strong></li>
           <li>Вставьте ссылку и сохраните</li>
-          <li>Подключитесь к серверу</li>
+          <li>Выберите сервер и подключитесь</li>
         </ol>
       </div>
     </div>
 
     <div class="footer">
-      Aurora &bull; Subscription endpoint
+      Aurora VPN &bull; Subscription endpoint
     </div>
   </div>
 
