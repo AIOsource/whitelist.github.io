@@ -17,16 +17,42 @@
       padding: 20px;
     }
     .container {
-      max-width: 440px;
+      max-width: 460px;
       width: 100%;
       background: #121218;
       border-radius: 16px;
       padding: 28px 24px;
       border: 1px solid #1e1e2e;
     }
-    .header { text-align: center; margin-bottom: 24px; }
+    .header { text-align: center; margin-bottom: 20px; }
     h1 { font-size: 20px; color: #fff; margin-bottom: 4px; }
     .sub { color: #888; font-size: 12px; }
+    .servers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .srv {
+      background: #1a1a24;
+      border-radius: 10px;
+      padding: 12px;
+      border: 1px solid #252535;
+      text-align: center;
+    }
+    .srv .flag { font-size: 24px; margin-bottom: 4px; }
+    .srv .name { font-size: 12px; color: #fff; font-weight: 500; }
+    .srv .port { font-size: 11px; color: #666; margin-top: 2px; }
+    .info {
+      background: #0d2818;
+      border: 1px solid #1a4d2e;
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin-bottom: 20px;
+      font-size: 12px;
+      color: #3fb950;
+      text-align: center;
+    }
     .url-box {
       background: #1a1a24;
       border-radius: 10px;
@@ -60,15 +86,15 @@
       flex-shrink: 0;
     }
     .btn.copied { background: #238636; color: #fff; }
-    .info {
+    .steps {
       background: #1a1a24;
       border-radius: 10px;
       padding: 14px;
       border: 1px solid #252535;
       margin-bottom: 20px;
     }
-    .info div { font-size: 13px; color: #999; line-height: 1.6; }
-    .info strong { color: #ccc; }
+    .steps div { font-size: 13px; color: #999; line-height: 1.6; }
+    .steps strong { color: #ccc; }
     .footer { text-align: center; font-size: 11px; color: #444; }
   </style>
 </head>
@@ -76,21 +102,48 @@
   <div class="container">
     <div class="header">
       <h1>Aurora VPN</h1>
-      <div class="sub">2 сервера &bull; VLESS Reality</div>
+      <div class="sub">4 сервера &bull; VLESS Reality &bull; 3 GB</div>
+    </div>
+
+    <div class="servers">
+      <div class="srv">
+        <div class="flag">🇫🇮</div>
+        <div class="name">Белые #1</div>
+        <div class="port">8443</div>
+      </div>
+      <div class="srv">
+        <div class="flag">🇩🇪</div>
+        <div class="name">Белые #2</div>
+        <div class="port">443</div>
+      </div>
+      <div class="srv">
+        <div class="flag">🇮🇹</div>
+        <div class="name">Италия</div>
+        <div class="port">443</div>
+      </div>
+      <div class="srv">
+        <div class="flag">🇳🇱</div>
+        <div class="name">Нидерланды</div>
+        <div class="port">443</div>
+      </div>
+    </div>
+
+    <div class="info">
+      Лимит 3 GB &bull; Только для белых списков
     </div>
 
     <div class="url-box">
-      <div class="label">Ссылка подписки для Happ / Hiddify:</div>
+      <div class="label">Ссылка для Happ / Hiddify:</div>
       <div class="url-input">
         <input type="text" id="sub-url" readonly>
         <button class="btn" id="copy-btn" onclick="copyUrl()">Copy</button>
       </div>
     </div>
 
-    <div class="info">
-      <div><strong>1.</strong> Скопируйте ссылку выше</div>
+    <div class="steps">
+      <div><strong>1.</strong> Скопируйте ссылку</div>
       <div><strong>2.</strong> Откройте Happ / Hiddify</div>
-      <div><strong>3.</strong> Добавьте подписку и вставьте ссылку</div>
+      <div><strong>3.</strong> Добавьте подписку → вставьте ссылку</div>
     </div>
 
     <div class="footer">Aurora VPN</div>
