@@ -6,95 +6,24 @@
   <title>Aurora VPN</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0a0a0f;
-      color: #e0e0e0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .container {
-      max-width: 520px;
-      width: 100%;
-      background: #121218;
-      border-radius: 16px;
-      padding: 28px 24px;
-      border: 1px solid #1e1e2e;
-    }
-    .servers {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #0a0a0f; color: #e0e0e0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+    .container { max-width: 520px; width: 100%; background: #121218; border-radius: 16px; padding: 28px 24px; border: 1px solid #1e1e2e; }
     .header { text-align: center; margin-bottom: 20px; }
     h1 { font-size: 20px; color: #fff; margin-bottom: 4px; }
     .sub { color: #888; font-size: 12px; }
-    .servers {
-      display: grid;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-    .srv {
-      background: #1a1a24;
-      border-radius: 10px;
-      padding: 12px;
-      border: 1px solid #252535;
-      text-align: center;
-    }
+    .servers { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+    .srv { background: #1a1a24; border-radius: 10px; padding: 12px; border: 1px solid #252535; text-align: center; }
     .srv .flag { font-size: 22px; margin-bottom: 4px; }
     .srv .name { font-size: 11px; color: #fff; font-weight: 500; margin-bottom: 2px; }
     .srv .detail { font-size: 10px; color: #666; }
-    .info {
-      background: #0d2818;
-      border: 1px solid #1a4d2e;
-      border-radius: 10px;
-      padding: 10px 14px;
-      margin-bottom: 16px;
-      font-size: 12px;
-      color: #3fb950;
-      text-align: center;
-    }
-    .url-box {
-      background: #1a1a24;
-      border-radius: 10px;
-      padding: 12px;
-      border: 1px solid #252535;
-      margin-bottom: 16px;
-    }
+    .info { background: #0d2818; border: 1px solid #1a4d2e; border-radius: 10px; padding: 10px 14px; margin-bottom: 16px; font-size: 12px; color: #3fb950; text-align: center; }
+    .url-box { background: #1a1a24; border-radius: 10px; padding: 12px; border: 1px solid #252535; margin-bottom: 16px; }
     .url-box .label { font-size: 11px; color: #666; margin-bottom: 8px; }
     .url-input { display: flex; gap: 8px; }
-    .url-input input {
-      flex: 1;
-      background: #0a0a0f;
-      border: 1px solid #252535;
-      border-radius: 8px;
-      padding: 10px 12px;
-      color: #aaa;
-      font-size: 11px;
-      font-family: monospace;
-      outline: none;
-      min-width: 0;
-    }
-    .btn {
-      background: #3fb950;
-      border: none;
-      border-radius: 8px;
-      padding: 10px 16px;
-      color: #000;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
+    .url-input input { flex: 1; background: #0a0a0f; border: 1px solid #252535; border-radius: 8px; padding: 10px 12px; color: #aaa; font-size: 11px; font-family: monospace; outline: none; }
+    .btn { background: #3fb950; border: none; border-radius: 8px; padding: 10px 16px; color: #000; font-size: 12px; font-weight: 600; cursor: pointer; flex-shrink: 0; }
     .btn.copied { background: #238636; color: #fff; }
-    .steps {
-      background: #1a1a24;
-      border-radius: 10px;
-      padding: 14px;
-      border: 1px solid #252535;
-      margin-bottom: 16px;
-    }
+    .steps { background: #1a1a24; border-radius: 10px; padding: 14px; border: 1px solid #252535; margin-bottom: 16px; }
     .steps div { font-size: 13px; color: #999; line-height: 1.6; }
     .steps strong { color: #ccc; }
     .footer { text-align: center; font-size: 11px; color: #444; }
@@ -104,74 +33,25 @@
   <div class="container">
     <div class="header">
       <h1>Aurora VPN</h1>
-      <div class="sub">37 servers &bull; VLESS / SS &bull; 10 GB</div>
+      <div class="sub">63 servers &bull; VLESS / SS / WS</div>
     </div>
 
     <div class="info">
-      4 Whitelist (3 GB) + 33 Premium servers (10 GB)
+      30 Whitelist + 33 Premium servers
     </div>
 
     <div class="servers">
-      <div class="srv">
-        <div class="flag">🇪🇺</div>
-        <div class="name">Whitelist #1</div>
-        <div class="detail">3 GB &bull; 8443</div>
-      </div>
-      <div class="srv">
-        <div class="flag">🇪🇺</div>
-        <div class="name">Whitelist #2</div>
-        <div class="detail">3 GB &bull; 443</div>
-      </div>
-      <div class="srv">
-        <div class="flag">🇮🇹</div>
-        <div class="name">Italy</div>
-        <div class="detail">10 GB &bull; 443</div>
-      </div>
-      <div class="srv">
-        <div class="flag">🇳🇱</div>
-        <div class="name">Netherlands</div>
-        <div class="detail">10 GB &bull; 443</div>
-      </div>
-      <div class="srv">
-        <div class="flag">🇵🇱</div>
-        <div class="name">Poland</div>
-        <div class="detail">10 GB &bull; 443</div>
-      </div>
-      <div class="srv">
-        <div class="flag">🇫🇮</div>
-        <div class="name">Finland</div>
-        <div class="detail">10 GB &bull; 443</div>
-      </div>
-      <div class="srv">
-        <div class="flag">🇷🇺</div>
-        <div class="name">Russia</div>
-        <div class="detail">10 GB &bull; 443</div>
-      </div>
-      <div class="srv">
-        <div class="flag">🇩🇪</div>
-        <div class="name">Germany ×2</div>
-        <div class="detail">10 GB &bull; 443</div>
-      </div>
-      <div class="srv">
-        <div class="flag">🇫🇷</div>
-        <div class="name">France</div>
-        <div class="detail">10 GB &bull; 443</div>
-      </div>
-      <div class="srv">
-        <div class="flag">🇬🇧</div>
-        <div class="name">UK</div>
-        <div class="detail">10 GB &bull; 443</div>
-      </div>
-      <div class="srv">
-        <div class="flag">🇨🇦</div>
-        <div class="name">Canada</div>
-        <div class="detail">10 GB &bull; 443</div>
-      </div>
-      <div class="srv">
-        <div class="flag">🇺🇸</div>
-        <div class="name">USA</div>
-        <div class="detail">10 GB &bull; 443</div>
-      </div>
+      <div class="srv"><div class="flag">🇪🇺</div><div class="name">Whitelist</div><div class="detail">3 GB</div></div>
+      <div class="srv"><div class="flag">🇵🇱</div><div class="name">Poland</div><div class="detail">Warsaw</div></div>
+      <div class="srv"><div class="flag">🇫🇮</div><div class="name">Finland</div><div class="detail">Helsinki</div></div>
+      <div class="srv"><div class="flag">🇷🇺</div><div class="name">Russia</div><div class="detail">Moscow</div></div>
+      <div class="srv"><div class="flag">🇳🇱</div><div class="name">Netherlands</div><div class="detail">Amsterdam</div></div>
+      <div class="srv"><div class="flag">🇩🇪</div><div class="name">Germany ×2</div><div class="detail">DE ×2</div></div>
+      <div class="srv"><div class="flag">🇫🇷</div><div class="name">France</div><div class="detail">Strasbourg</div></div>
+      <div class="srv"><div class="flag">🇮🇹</div><div class="name">Italy</div><div class="detail">Milan</div></div>
+      <div class="srv"><div class="flag">🇬🇧</div><div class="name">UK</div><div class="detail">London</div></div>
+      <div class="srv"><div class="flag">🇨🇦</div><div class="name">Canada</div><div class="detail">Beauharnois</div></div>
+      <div class="srv"><div class="flag">🇺🇸</div><div class="name">USA</div><div class="detail">Manassas</div></div>
     </div>
 
     <div class="url-box">
@@ -185,7 +65,7 @@
     <div class="steps">
       <div><strong>1.</strong> Скопируйте ссылку</div>
       <div><strong>2.</strong> Откройте Happ / Hiddify</div>
-      <div><strong>3.</strong> Добавьте подписку → вставьте</div>
+      <div><strong>3.</strong> Добавьте подписку → вставьте ссылку</div>
     </div>
 
     <div class="footer">Aurora VPN</div>
@@ -193,13 +73,10 @@
 
   <script>
     (function() {
-      var u = window.location.origin + window.location.pathname;
-      if (!u.endsWith("/")) u += "/";
-      u += "sub.json";
+      var u = window.location.origin + '/sub.json';
       document.getElementById("sub-url").value = u;
       window.copyUrl = function() {
         var i = document.getElementById("sub-url");
-        i.select();
         navigator.clipboard.writeText(u).then(function() {
           var b = document.getElementById("copy-btn");
           b.textContent = "Done";
